@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+# An installer program for setting up InterfaceCMS in a development environment
+#
+# Assumes the following dependencies:
+# - Ruby 1.8.6-p114
+# - instance files have been downloaded
+
+##########################################################################################
+INTERFACE_GEM_PATH = '/Users/natemiller/Sites/sagacity/interfacecms'
+#INTERFACE_INSTANCE_PATH = '/Users/natemiller/Sites/sagacity/seattlemet.com'
+INTERFACE_INSTANCE_PATH = '/Users/natemiller/Sites/sagacity/portlandmonthlymag'
+INTERFACE_FRONTEND_PATH = '/Users/natemiller/Sites/sagacity/front_ends/pomo-frontend'
+##########################################################################################
+
+Dir.glob(File.join("**", "*.rb")) { |f| require f }
+
+installer = CmsInstaller::Installer.new(INTERFACE_GEM_PATH, INTERFACE_INSTANCE_PATH, INTERFACE_FRONTEND_PATH)
+installer.run
+
