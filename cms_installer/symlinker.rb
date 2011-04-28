@@ -63,7 +63,7 @@ module CmsInstaller
       
       # Creates a symlink from src to dest. Will delete any files currently located at dest
       def force_create_symlink(src, dest)
-        if File.symlink?(dest)
+        if File.symlink?(dest) or File.exist?(dest)
           FileUtils.rm(dest) 
         elsif File.directory?(dest)
           FileUtils.rm_rf(dest)
